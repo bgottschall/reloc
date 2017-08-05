@@ -1,0 +1,11 @@
+hd_visual
+*.cache
+*.runs
+*.sim
+*.ip_user_files
+.Xil
+*.log
+*.jou
+*.str
+*.zip
+*.debug
