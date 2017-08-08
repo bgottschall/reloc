@@ -23,3 +23,12 @@ Example Project for the ZedBoard.
 * source pr_script.tcl
 
 Implemented design has now 3 relocatable partions.
+
+# relocater
+Working proof of concept. Creating FAR Profiles from existing Bitstreams and patching them in new ones!
+
+* Get Header and FAR Informations from bitstreams
+* Writing the FAR Addresses into profile files
+* Patching bitstreams with FAR Address Profiles
+
+WARNING: make always a copy of the bitstreams you are working on. If the patching is successful the relocater overwrites the bitstream.
