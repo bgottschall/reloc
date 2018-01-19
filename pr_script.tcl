@@ -31,15 +31,18 @@ set pr_cells { pr_1 pr_2 }
 #left, right
 set interface_location left
 #top, bottom, center, nosplit_top, nosplit_bottom
-set interface_strategy top
+set interface_strategy nosplit_top
+#How many slices at top and bottom will not be used for interface placement
+set interface_strategy_trim 4
+#every n'th bel gets skipped, 0 or 1 disabled
+set interface_strategy_skip 3
 
 set target_constraints "reloc"
 set synth "synth_1"
 set impl "impl_1"
 #Autorun will source pr_script.tcl automatically after every step, vivado will be more stable
 set autorun 1
-#How many slices at top and bottom will not be used for interface placement
-set interface_strategy_trim 4
+
 
 
 set script [file normalize [info script]]
@@ -190,6 +193,19 @@ if { $STEP eq 0 } {
 
     set buf_input_bels [get_bels_lut6 $buf_input_slices]
     set buf_output_bels [get_bels_lut6 $buf_output_slices]
+
+    if { $interface_strategy_skip > 1 } {
+        set to_process [list pr_input_bels pr_output_bels buf_input_bels buf_output_bels]
+        foreach list_name $to_process {
+            set skip_list [set $list_name]
+            set $list_name {}
+            for {set i 0} {$i < [llength $skip_list]} {incr i} {
+                if { [expr ($i + 1) % $interface_strategy_skip] != 0 } {
+                    lappend $list_name [lindex $skip_list $i]
+                }
+            }
+        }
+    }
 
 
 
