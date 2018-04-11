@@ -1,8 +1,9 @@
 # Designing Relocatable Partitions with Vivado Design Suite
 
-* Implement one bitstream and configure it in different FPGA locations FPGA
+* Implement one bitstream and configure it in different FPGA locations
 * Combining Isolation Design Flow and Partial Reconfiguration
-* Preserving Compability of bitstreams over different implementations
+* Preserving compatibility of bitstreams over different implementations
+* Independent development of static design and partial reconfigurations
 * Much less implementation time
 
 # procs.tcl
