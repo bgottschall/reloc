@@ -1,4 +1,4 @@
-# Designing Relocatable Partitions with Vivado Design Suite
+# Reloc - An Open-Sourced Vivado Workflow for Generating Relocatable, Out-Of-Context End-User Configuration Tiles
 
 * Implement one bitstream and configure it in different FPGA locations
 * Combining Isolation Design Flow and Partial Reconfiguration
